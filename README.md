@@ -67,7 +67,7 @@ layui.config({
 **则引用方式为：**  
 ```javascript
 <script src="js/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/layui/extends/laydateTab.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/extends/laydateTab.js" type="text/javascript" charset="utf-8"></script>
 ```
 ## 使用说明
 ### 获取laydateTab对象 
