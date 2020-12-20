@@ -2,7 +2,7 @@
 
 ## 介绍
 基于layui的laydate实现的日期时间选择组件选项卡，可以支持多个日期类型切换选择，且对于laydate的配置全部支持。
-
+![效果图](examples/img/效果图1.png)
 
 ## 安装教程
 依赖laydate，所以必须引用laydate!  
@@ -69,8 +69,8 @@ layui.config({
 <script src="js/laydate/laydate.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/layui/extends/laydateTab.js" type="text/javascript" charset="utf-8"></script>
 ```
-### 使用说明
-#### 获取laydateTab对象 
+## 使用说明
+### 获取laydateTab对象 
 1.  使用layui模块化引入，使用``layui.laydateTab``获取laydateTab对象。  
 ```javascript
 layui.config({
@@ -92,8 +92,46 @@ laydateTab.render({
 ```
 
 3.  具体例子参考 **examples** 文件夹里面。
+**最简单的绑定配置**
+```javascript
+laydateTab.render({
+	elem : '#indate' // 绑定触发元素
+});
+```
+**比较复杂的绑定配置**
+```javascript
+laydateTab.render({
+	elem : '#indate', // 绑定触发元素
+	type : ['year', 'month'], //显示的类型选项卡
+	title : ['年份', '月份'], // 日期选择选项卡显示的标题名称
+	range : '~', // 开启范围，使用Array则对类型区分使用该参数
+	selected : 'month', // 初始化默认显示的选项卡
+	theme : '#393D49', //主题
+	// 渲染成功之后回调
+	success : function(tabElem, options) {
+	    console.log(tabElem); // 日期选项卡对应的标签元素
+	    console.log(options); // 渲染的参数
+	},
+	// 切换选项卡的回调
+	changeTab : function(type, title) { 
+		console.log(type); // 当前选择的类型
+		console.log(title); // 当前选择的类型标题名称
+	},
+	// 选择完毕的回调, 可参考laydate done回调
+	done : function(value, date, endDate) {
+		console.log(value); // 生成的值(选择后的值)
+		console.log(date); // 日期时间对象
+		console.log(date); //结束的日期时间对象
+	    layer.msg('当前选择的值为:<br> ' + value);
+	},
+	// 销毁选项卡之后的回调
+	end : function(elem) {
+	    console.log(elem); // 所绑定的触发元素 - elem对象 
+	}
+});
+```
 
-#### laydateTab特有的相关配置
+### laydateTab特有的相关配置
 
 |参数	|类型	|说明	|示例值		|
 ---|---|---|---
@@ -107,17 +145,17 @@ theme | String | 主题；theme的可选值有：default（默认简约）、mol
 locationValueTab | Boolean | 有初始值情况下，是否定位到初始值对应的选项卡类型,默认true，false不进行定位 | false
 success | Function | 渲染显示成功之后的回调，返回2个参数，分别为日期选项卡对应的标签元素、渲染配置 | function(tabElem, options)  {<br> console.log(tabElem);<br>console.log(options);<br>}
 changeTab | Function | 切换选项卡的回调，返回1个参数-选项卡对应的类型、类型标题名称 | function(type, title)  {<br> console.log(type);<br> console.log(title);<br>}
-done | Array / Function | 选择完毕的回调,如果是数组，则数组存放的也需要为function，回调参数带有3个参数分别代表：生成的值、日期时间对象、结束的日期时间对象；如果return String类型的值回去，则将return的值给elem赋值<br> | function(value, date, endDate){<br>console.log(value);<br>console.log(date);<br>console.log(endDate);<br>}
+done | Array / Function | 选择完毕的回调,如果是数组，则数组存放的也需要为function，可参考laydate done回调;回调参数带有3个参数分别代表：生成的值、日期时间对象、结束的日期时间对象；如果return String类型的值回去，则将return的值给elem赋值<br> | function(value, date, endDate){<br>console.log(value);<br>console.log(date);<br>console.log(endDate);<br>}
 end | Function | 销毁选项卡之后的回调，返回1个参数-所绑定的elem对象 | function(elem)  {<br> console.log(elem);<br>}
 
 *tips : `position`参数不可使用*
 
-#### 其他相关配置
+### 其他相关配置
 
 其他配置参考[laydate配置](https://www.layui.com/doc/modules/laydate.html#onchange), 选项卡全通用则使用**单个值**，区分选项卡则使用**数组**。
 
 
-#### 参与贡献
+## 参与贡献
 
 1.  Fork 本仓库
 2.  新建 Feat_xxx 分支
