@@ -54,9 +54,9 @@ layui.config({
 	|-- project
 		|-- js
 			|-- laydate
+				|-- laydate.js
 				|-- theme
 					|-- default
-						|-- font
 							...
 						|-- laydate.css
 			|-- extends

@@ -359,10 +359,10 @@
 		});
 		// 自适应
 		lay(window).on('resize', function(e) {
-			that.remove(true);
+			that.position();
 		});
 		lay(document).on('scroll', function(e) {
-			that.remove(true);
+			that.position();
 		});
 	}
 
@@ -406,8 +406,8 @@
 			this.tabElem.remove();
 			this.tabElem = null;
 			// 成功渲染之后的回调
-			render !== true && typeof options.end === 'function' && options.end(this.elem[0]);
-			render === true && this.render();
+			typeof options.end === 'function' && options.end(this.elem[0]);
+			
 		}
 	}
 
