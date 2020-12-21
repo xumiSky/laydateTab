@@ -14,7 +14,7 @@
 		<h1 class="site-h1">layui模块加载方式使用例子-先引入layui模块</h1>
 		<pre class="layui-code" lay-encode="true">
 layui.config({
-    base: 'js/layui/extends/'
+    base: 'js/layui/extends/' // laydateTab所在的文件夹路径，建议放在layui下的extends文件夹下
 }).extend({ 
     laydateTab: 'laydateTab' 
 }).use(['laydateTab'], function(){
