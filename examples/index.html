@@ -3,9 +3,39 @@
 	<head>
 		<meta charset="utf-8">
 		<title>laydateTab使用例子</title>
+		<link rel="stylesheet" type="text/css" href="js/layui/css/layui.css"/>
+		<style type="text/css">
+			iframe {
+				border: none;
+			}
+		</style>
 	</head>
     <body>
-        <a href="layui-laydateTab.html">layui-laydateTab.html</a>
-        <a href="laydate-laydateTab.html">laydate单独模块引入方式使用例子</a>
+		<div class="layui-tab">
+		  <ul class="layui-tab-title">
+		    <li class="layui-this">layui模块加载方式使用例子</li>
+		    <li>laydate单独模块引入方式使用例子</li>
+		  </ul>
+		  <div class="layui-tab-content">
+		    <div class="layui-tab-item layui-show">
+				<iframe src="layui-laydateTab.html" width="100%"></iframe>
+			</div>
+		    <div class="layui-tab-item">
+				<iframe src="laydate-laydateTab.html" width="100%"></iframe>
+			</div>
+		  </div>
+		</div>
+		<script src="js/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			layui.use(['element', 'jquery'], function(){
+				var $ = layui.$,
+				element = layui.element;
+				var titleHeight = $('.layui-tab-title').outerHeight() + 45;
+				$('iframe').height($(window).height() - titleHeight);
+				$(window).on('resize', function(){
+					$('iframe').height($(window).height() - titleHeight);
+				});
+			});
+		</script>
     </body>
 </html>

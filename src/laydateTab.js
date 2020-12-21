@@ -368,6 +368,10 @@
 
 	//定位算法
 	Class.prototype.position = function(){
+	  // tabElem存在才可以定位
+	  if (!this.tabElem) {
+		  return ;
+	  }
 	  var that = this
 	  ,options = that.config
 	  ,elem = that.elem[0]
