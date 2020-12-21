@@ -1,4 +1,4 @@
-# laydateTable
+# laydateTab
 
 ## 介绍
 基于layui的laydate实现的日期时间选择组件选项卡，可以支持多个日期类型切换选择，且对于laydate的配置全部支持。 [查看例子展示](https://xumisky.gitee.io/laydate-tab/)   
@@ -51,18 +51,18 @@ layui.config({
 ### 2. 使用laydate单独引入
 项目目录结构假设为：
 ```javascript
-	|-- project
-		|-- js
-			|-- laydate
-				|-- laydate.js
-				|-- theme
-					|-- default
-							...
-						|-- laydate.css
-			|-- extends
-				|-- css
-					|-- laydateTab.css
-				|-- laydateTab.js
+|-- project
+	|-- js
+		|-- laydate
+			|-- laydate.js
+			|-- theme
+				|-- default
+						...
+					|-- laydate.css
+		|-- extends
+			|-- css
+				|-- laydateTab.css
+			|-- laydateTab.js
 ```
 **则引用方式为：**  
 ```javascript
