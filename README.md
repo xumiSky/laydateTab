@@ -1,7 +1,7 @@
 # laydateTable
 
 ## 介绍
-基于layui的laydate实现的日期时间选择组件选项卡，可以支持多个日期类型切换选择，且对于laydate的配置全部支持。  
+基于layui的laydate实现的日期时间选择组件选项卡，可以支持多个日期类型切换选择，且对于laydate的配置全部支持。 [查看例子展示](https://xumisky.gitee.io/laydate-tab/)   
 ![效果图](examples/img/效果图1.png)
 
 ## 安装教程
