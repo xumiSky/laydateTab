@@ -10,32 +10,51 @@
 			}
 		</style>
 	</head>
-    <body>
+	<body style="padding: 0 10px;">
 		<div class="layui-tab">
-		  <ul class="layui-tab-title">
-		    <li class="layui-this">layui模块加载方式使用例子</li>
-		    <li>laydate单独模块引入方式使用例子</li>
-		  </ul>
-		  <div class="layui-tab-content">
-		    <div class="layui-tab-item layui-show">
-				<iframe src="layui-laydateTab.html" width="100%"></iframe>
+			<ul class="layui-tab-title">
+				<li class="layui-this">使用方式</li>
+				<li>例子展示</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<h1 class="site-h1">layui模块加载方式使用例子-先引入layui模块</h1>
+					<pre class="layui-code" style="display: block;">
+layui.config({
+    base: 'js/layui/extends/'
+}).extend({ 
+    laydateTab: 'laydateTab' 
+}).use(['laydateTab'], function(){
+    var laydateTab = layui.laydateTab;
+});
+					</pre>
+					<h1 class="site-h1">laydate单独模块引入方式使用例子-先引入ladate.js和laydateTab.js</h1>
+					<pre class="layui-code" lay-encode="true">
+&lt;script src="js/laydate/laydate.js" type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+&lt;script src="js/extends/laydateTab.js" type="text/javascript" charset="utf-8"&gt;&lt;/script&gt;
+使用时，直接使用laydateTab
+					</pre>
+				</div>
+				<div class="layui-tab-item">
+					<iframe src="laydateTabDemo.html" width="100%"></iframe>
+				</div>
 			</div>
-		    <div class="layui-tab-item">
-				<iframe src="laydate-laydateTab.html" width="100%"></iframe>
-			</div>
-		  </div>
 		</div>
 		<script src="js/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			layui.use(['element', 'jquery'], function(){
+			layui.use(['element', 'jquery', 'code'], function() {
 				var $ = layui.$,
-				element = layui.element;
+					element = layui.element;
+				layui.code({
+				  title: 'laydateTab-代码演示'
+				  // ,skin: 'notepad' //如果要默认风格，不用设定该key。
+				});
 				var titleHeight = $('.layui-tab-title').outerHeight() + 45;
 				$('iframe').height($(window).height() - titleHeight);
-				$(window).on('resize', function(){
+				$(window).on('resize', function() {
 					$('iframe').height($(window).height() - titleHeight);
 				});
 			});
 		</script>
-    </body>
+	</body>
 </html>
